@@ -1,24 +1,24 @@
-package ex4;
+package ex6;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Salas {
-
+public class Suministra {
 	public void createTable() {
 		Connection c = AppMain.connection;
 		try {
-			String query = "DROP TABLE IF EXISTS salas";
+			String query = "DROP TABLE IF EXISTS suministra";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
 			
-			query = "CREATE TABLE salas("+
-					"codigo INT NOT NULL AUTO_INCREMENT, "+
-					"nombre VARCHAR(100), "+
-					"pelicula INT NOT NULL,"+
-					"PRIMARY KEY (codigo),"+
-					"CONSTRAINT FK_PeliculaSala FOREIGN KEY (pelicula) REFERENCES peliculas(codigo) ON DELETE CASCADE ON UPDATE CASCADE"+
+			query = "CREATE TABLE suministra("+
+					"codigoPieza INT NOT NULL, "+
+					"idProveedor CHAR(4) NOT NULL, "+
+					"precio INT,"+
+					"PRIMARY KEY (codigoPieza, idProveedor),"+
+					"CONSTRAINT FK_PiezasSuministra FOREIGN KEY (codigoPieza) REFERENCES piezas(codigo) ON DELETE CASCADE ON UPDATE CASCADE,"+
+					"CONSTRAINT FK_ProveedorSuministra FOREIGN KEY (idProveedor) REFERENCES proveedores(id) ON DELETE CASCADE ON UPDATE CASCADE"+
 					")";
 			st.executeUpdate(query);
 			System.out.println("Tabla creada con éxito!");
@@ -29,13 +29,13 @@ public class Salas {
 		}
 	}
 	
-	public void insertSalas() {
+	public void insertSuministra() {
 		Connection c = AppMain.connection;
 		try {
-			String query = "INSERT INTO salas (nombre, pelicula) values"+
-					"('Sala1', 1),"+
-					"('Sala2', 2),"+
-					"('Sala3', 3);";
+			String query = "INSERT INTO suministra (codigoPieza, idProveedor, precio) values"+
+					"('1', 'id01', 10),"+
+					"('2', 'id02', 20),"+
+					"('3', 'id03', 30);";
 		
 			Statement st = c.createStatement();
 			st.executeUpdate(query);

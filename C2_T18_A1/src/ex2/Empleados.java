@@ -19,7 +19,7 @@ public class Empleados {
 					"apellidos VARCHAR(255) NOT NULL, "+
 					"departamento INT NOT NULL,"+
 					"PRIMARY KEY (DNI),"+
-					"CONSTRAINT FK_DepartamentoEmpleado FOREIGN KEY (departamento) REFERENCES departamentos(codigo)"+
+					"CONSTRAINT FK_DepartamentoEmpleado FOREIGN KEY (departamento) REFERENCES departamentos(codigo) ON DELETE CASCADE ON UPDATE CASCADE"+
 					")";
 			st.executeUpdate(query);
 			System.out.println("Tabla creada con éxito!");

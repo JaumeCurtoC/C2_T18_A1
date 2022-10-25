@@ -19,7 +19,7 @@ public class Articulos {
 					"precio INT,"+
 					"fabricante INT NOT NULL,"+
 					"PRIMARY KEY (codigo),"+
-					"CONSTRAINT FK_FabricanteArticulo FOREIGN KEY (fabricante) REFERENCES fabricantes(codigo)"+
+					"CONSTRAINT FK_FabricanteArticulo FOREIGN KEY (fabricante) REFERENCES fabricantes(codigo) ON DELETE CASCADE ON UPDATE CASCADE"+
 					")";
 			st.executeUpdate(query);
 			System.out.println("Tabla creada con éxito!");

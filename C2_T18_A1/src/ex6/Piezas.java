@@ -1,25 +1,21 @@
-package ex4;
+package ex6;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Salas {
-
+public class Piezas {
 	public void createTable() {
 		Connection c = AppMain.connection;
 		try {
-			String query = "DROP TABLE IF EXISTS salas";
+			String query = "DROP TABLE IF EXISTS piezas";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
 			
-			query = "CREATE TABLE salas("+
+			query = "CREATE TABLE piezas("+
 					"codigo INT NOT NULL AUTO_INCREMENT, "+
-					"nombre VARCHAR(100), "+
-					"pelicula INT NOT NULL,"+
-					"PRIMARY KEY (codigo),"+
-					"CONSTRAINT FK_PeliculaSala FOREIGN KEY (pelicula) REFERENCES peliculas(codigo) ON DELETE CASCADE ON UPDATE CASCADE"+
-					")";
+					"nombre VARCHAR(100),"+
+					"PRIMARY KEY (codigo))";
 			st.executeUpdate(query);
 			System.out.println("Tabla creada con éxito!");
 			
@@ -29,13 +25,13 @@ public class Salas {
 		}
 	}
 	
-	public void insertSalas() {
+	public void insertPiezas() {
 		Connection c = AppMain.connection;
 		try {
-			String query = "INSERT INTO salas (nombre, pelicula) values"+
-					"('Sala1', 1),"+
-					"('Sala2', 2),"+
-					"('Sala3', 3);";
+			String query = "INSERT INTO piezas (nombre) values"+
+					"('Pieza1'),"+
+					"('Pieza2'),"+
+					"('Pieza3');";
 		
 			Statement st = c.createStatement();
 			st.executeUpdate(query);

@@ -18,8 +18,8 @@ public class Directores {
 					"DNIJefe VARCHAR(8),"+
 					"despacho INT,"+
 					"PRIMARY KEY (DNI),"+
-					"CONSTRAINT FK_DespachoDirector FOREIGN KEY (despacho) REFERENCES despachos(numero),"+
-					"CONSTRAINT FK_DirectorJefe FOREIGN KEY (DNIJefe) REFERENCES directores(DNI)"+
+					"CONSTRAINT FK_DespachoDirector FOREIGN KEY (despacho) REFERENCES despachos(numero) ON DELETE CASCADE ON UPDATE CASCADE,"+
+					"CONSTRAINT FK_DirectorJefe FOREIGN KEY (DNIJefe) REFERENCES directores(DNI) ON DELETE CASCADE ON UPDATE CASCADE"+
 					")";
 			st.executeUpdate(query);
 			System.out.println("Tabla creada con éxito!");

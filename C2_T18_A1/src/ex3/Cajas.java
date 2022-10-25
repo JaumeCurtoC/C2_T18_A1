@@ -19,7 +19,7 @@ public class Cajas {
 					"valor INT, "+
 					"almacen INT NOT NULL,"+
 					"PRIMARY KEY (numReferencia),"+
-					"CONSTRAINT FK_AlmacenCaja FOREIGN KEY (almacen) REFERENCES almacenes(codigo)"+
+					"CONSTRAINT FK_AlmacenCaja FOREIGN KEY (almacen) REFERENCES almacenes(codigo) ON DELETE CASCADE ON UPDATE CASCADE"+
 					")";
 			st.executeUpdate(query);
 			System.out.println("Tabla creada con éxito!");
