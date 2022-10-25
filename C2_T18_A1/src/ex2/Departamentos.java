@@ -5,14 +5,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Departamentos {
-	
+	// Método para crear la tabla
 	public void createTable() {
 		Connection c = AppMain.connection;
 		try {
+			// Borrar la tabla en caso que exista
 			String query = "DROP TABLE IF EXISTS departamentos";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
-			
+			// Crear la tabla y su estructura
 			query = "CREATE TABLE departamentos("+
 					"codigo INT NOT NULL AUTO_INCREMENT, "+
 					"nombre VARCHAR(100) NOT NULL, "+
@@ -26,7 +27,7 @@ public class Departamentos {
 			System.out.println("Error creando la tabla.");
 		}
 	}
-	
+	// Método para insertar datos en la tabla
 	public void insertDepartamentos() {
 		Connection c = AppMain.connection;
 		try {

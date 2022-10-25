@@ -5,14 +5,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Empleados {
-
+	// Método para crear la tabla
 	public void createTable() {
 		Connection c = AppMain.connection;
 		try {
+			// Borrar la tabla en caso que exista
 			String query = "DROP TABLE IF EXISTS empleados";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
-			
+			// Crear la tabla y su estructura
 			query = "CREATE TABLE empleados("+
 					"DNI VARCHAR(8) NOT NULL, "+
 					"nombre VARCHAR(100) NOT NULL, "+
@@ -29,7 +30,7 @@ public class Empleados {
 			System.out.println("Error creando la tabla.");
 		}
 	}
-	
+	// Método para insertar datos en la tabla
 	public void insertEmpleados() {
 		Connection c = AppMain.connection;
 		try {

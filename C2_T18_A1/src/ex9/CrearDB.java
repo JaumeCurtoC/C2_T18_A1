@@ -1,4 +1,4 @@
-package ex6;
+package ex9;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -11,14 +11,14 @@ public class CrearDB {
 		Connection c = AppMain.connection;
 		try {
 			// Eliminar la base de datos en caso que exista
-			String query = "DROP DATABASE IF EXISTS sumininstacion";
+			String query = "DROP DATABASE IF EXISTS investigacion";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
 			// Crear la base de datos desde cero
-			query = "CREATE DATABASE sumininstacion";
+			query = "CREATE DATABASE investigacion";
 			st.executeUpdate(query);
 			// Indicar la base de datos
-			String querydb = "USE sumininstacion;";
+			String querydb = "USE investigacion;";
 			Statement stdb = c.createStatement();
 			stdb.executeUpdate(querydb);
 			

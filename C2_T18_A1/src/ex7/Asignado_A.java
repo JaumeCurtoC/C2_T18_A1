@@ -5,13 +5,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Asignado_A {
+	// Método para crear la tabla
 	public void createTable() {
 		Connection c = AppMain.connection;
 		try {
+			// Borrar la tabla en caso que exista
 			String query = "DROP TABLE IF EXISTS asignado_a";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
 			
+			// Crear la tabla y su estructura
 			query = "CREATE TABLE asignado_a("+
 					"cientifico VARCHAR(8) NOT NULL, "+
 					"proyecto CHAR(4) NOT NULL, "+
@@ -28,6 +31,7 @@ public class Asignado_A {
 		}
 	}
 	
+	// Método para insertar datos en la tabla
 	public void insertAsignados() {
 		Connection c = AppMain.connection;
 		try {

@@ -5,13 +5,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Productos {
+	// Método para crear la tabla
 	public void createTable() {
+		// Borrar la tabla en caso que exista
 		Connection c = AppMain.connection;
 		try {
 			String query = "DROP TABLE IF EXISTS productos";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
-			
+			// Crear la tabla y su estructura
 			query = "CREATE TABLE productos("+
 					"codigo INT NOT NULL AUTO_INCREMENT,"+
 					"nombre VARCHAR(100),"+
@@ -25,7 +27,7 @@ public class Productos {
 			System.out.println("Error creando la tabla.");
 		}
 	}
-	
+	// Método para insertar datos en la tabla
 	public void insertProductos() {
 		Connection c = AppMain.connection;
 		try {

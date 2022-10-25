@@ -1,4 +1,4 @@
-package ex3;
+package ex9;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,8 +14,10 @@ public class AppMain {
 	public static void main(String[] args) {
 		// Declaración de Variables Locales
 		CrearDB cdb = new CrearDB();
-		Almacenes a = new Almacenes();
-		Cajas c = new Cajas();
+		Facultad f = new Facultad();
+		Investigadores i = new Investigadores();
+		Equipos e = new Equipos();
+		Reserva r = new Reserva();
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -24,12 +26,18 @@ public class AppMain {
 			System.out.println("Server Connected");
 			// Creación de la base de datos
 			cdb.crearDB();
-			// Creación de la tabla Almacenes e inserción de datos
-			a.createTable();
-			a.insertAlmacenes();
-			// Creación de la tabla Cajas e inserción de datos
-			c.createTable();
-			c.insertCajas();
+			// Creación de la tabla Facultad e inserción de datos
+			f.createTable();
+			f.insertFacultad();
+			// Creación de la tabla Investigadores e inserción de datos
+			i.createTable();
+			i.insertInvestigadores();
+			// Creación de la tabla Equipos e inserción de datos
+			e.createTable();
+			e.insertEquipos();
+			// Creación de la tabla Reserva e inserción de datos
+			r.createTable();
+			r.insertReserva();
 			// Cerrar conexión con la base de datos
 			closeConnection();
 		}catch(SQLException | ClassNotFoundException ex) {

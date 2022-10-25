@@ -10,13 +10,14 @@ public class CrearDB {
 	public void crearDB() {
 		Connection c = AppMain.connection;
 		try {
+			// Eliminar la base de datos en caso que exista
 			String query = "DROP DATABASE IF EXISTS ciencia";
 			Statement st = c.createStatement();
 			st.executeUpdate(query);
-			
+			// Crear la base de datos desde cero
 			query = "CREATE DATABASE ciencia";
 			st.executeUpdate(query);
-			
+			// Indicar la base de datos
 			String querydb = "USE ciencia;";
 			Statement stdb = c.createStatement();
 			stdb.executeUpdate(querydb);
