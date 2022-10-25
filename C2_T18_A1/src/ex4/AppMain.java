@@ -7,7 +7,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AppMain {
-static Connection connection;
+
+	static Connection connection;
 	
 	public static void main(String[] args) {
 		CrearDB cdb = new CrearDB();
