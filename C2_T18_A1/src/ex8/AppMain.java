@@ -1,4 +1,4 @@
-package ex6;
+package ex8;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,14 +7,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class AppMain {
-
 	static Connection connection;
 	
 	public static void main(String[] args) {
 		CrearDB cdb = new CrearDB();
-		Piezas p = new Piezas();
-		Proveedores p1 = new Proveedores();
-		Suministra s = new Suministra();
+		Productos p = new Productos();
+		Cajeros c = new Cajeros();
+		Maquinas_Registradoras m = new Maquinas_Registradoras();
+		Venta v = new Venta();
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,13 +25,16 @@ public class AppMain {
 			cdb.crearDB();
 			
 			p.createTable();
-			p.insertPiezas();
+			p.insertProductos();
 			
-			p1.createTable();
-			p1.insertProveedores();
+			c.createTable();
+			c.insertCajeros();
 			
-			s.createTable();
-			s.insertSuministra();
+			m.createTable();
+			m.insertMaquinas();
+			
+			v.createTable();
+			v.insertVentas();
 			
 			closeConnection();
 		}catch(SQLException | ClassNotFoundException ex) {

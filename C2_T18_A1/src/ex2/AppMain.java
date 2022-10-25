@@ -17,7 +17,8 @@ public class AppMain {
 		Empleados e = new Empleados();
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://192.168.0.45:3306?useTimezone=true&serverTimezone=UTC","remote","Arcangel1999!");
+			// Password retirada por seguridad
+			connection = DriverManager.getConnection("jdbc:mysql://192.168.0.45:3306?useTimezone=true&serverTimezone=UTC","remote","PASSWORD");
 			System.out.println("Server Connected");
 			
 			cdb.crearDB();
