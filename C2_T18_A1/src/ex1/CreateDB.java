@@ -6,10 +6,10 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import ex1.AppMain;
-
 public class CreateDB {
-
+	
+	static Connection connection;
+	
 	public void crearDB() {
 		Connection c = AppMain.connection;
 		try {
